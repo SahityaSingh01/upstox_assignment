@@ -55,80 +55,26 @@ const ListElement = () => {
   };
   const renderItem = ({item}) => {
     return (
-      <View style={{backgroundColor: 'white'}}>
-        <View
-          style={{
-            padding: 10,
-            flexDirection: 'column',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-                fontWeight: 'bold',
-              }}>
-              {item.symbol}
-            </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
+      <View style={styles.mainContainer}>
+        <View style={styles.firstContainer}>
+          <View style={styles.symbolContainer}>
+            <Text style={styles.symbolText}>{item.symbol}</Text>
+            <Text style={styles.ltpText}>
               LTP : {''}
-              <Text
-                style={{
-                  color: 'black',
-                  fontSize: 16,
-                  fontWeight: 'bold',
-                }}>
-                ₹ {item.ltp.toFixed(2)}
-              </Text>
+              <Text style={styles.symbolText}>₹ {item.ltp.toFixed(2)}</Text>
             </Text>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginTop: 6,
-            }}>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
-              {item.quantity}
-            </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
+          <View style={styles.quantityContainer}>
+            <Text style={styles.ltpText}>{item.quantity}</Text>
+            <Text style={styles.ltpText}>
               P/L :{''}
-              <Text
-                style={{
-                  color: 'black',
-                  fontSize: 16,
-                  fontWeight: 'bold',
-                }}>
+              <Text style={styles.symbolText}>
                 ₹ {item.avgPrice.toFixed(2)}
               </Text>
             </Text>
           </View>
         </View>
-        <View
-          style={{
-            backgroundColor: '#c8c4cc',
-            height: 1,
-            width: '100%',
-            height: 1,
-            marginTop: 4,
-            marginLeft: 12,
-          }}></View>
+        <View style={styles.lineStyle}></View>
       </View>
     );
   };
@@ -153,4 +99,33 @@ const ListElement = () => {
 
 export default ListElement;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  mainContainer: {backgroundColor: 'white'},
+  firstContainer: {
+    padding: 10,
+    flexDirection: 'column',
+  },
+  symbolContainer: {flexDirection: 'row', justifyContent: 'space-between'},
+  symbolText: {
+    color: 'black',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  ltpText: {
+    color: 'black',
+    fontSize: 16,
+  },
+  quantityContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 6,
+  },
+  lineStyle: {
+    backgroundColor: '#c8c4cc',
+    height: 1,
+    width: '100%',
+    height: 1,
+    marginTop: 4,
+    marginLeft: 12,
+  },
+});

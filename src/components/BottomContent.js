@@ -10,31 +10,10 @@ const BottomContent = props => {
     <View>
       <Pressable
         onPress={() => refRBSheet.current.open()}
-        style={{
-          backgroundColor: 'white',
-          minHeight: 60,
-          flexDirection: 'column',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginVertical: 24,
-            marginHorizontal: 12,
-          }}>
-          <Text
-            style={{
-              color: 'black',
-              fontSize: 16,
-              fontWeight: 'bold',
-            }}>
-            P/L:
-          </Text>
-          <Text
-            style={{
-              color: 'black',
-              fontSize: 16,
-            }}>
+        style={styles.pressableContainerStyle}>
+        <View style={styles.mainContainerStyle}>
+          <Text style={styles.plTextStyle}>P/L:</Text>
+          <Text style={styles.plValueTextStyle}>
             ₹ {(cvState - ivState).toFixed(2)}
           </Text>
         </View>
@@ -51,96 +30,31 @@ const BottomContent = props => {
             backgroundColor: '#000',
           },
         }}>
-        <View
-          style={{
-            marginHorizontal: 12,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginVertical: 12,
-            }}>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-                fontWeight: 'bold',
-              }}>
+        <View style={styles.bottomsheetMainContainer}>
+          <View style={styles.bottomsheetTextContainerStyle}>
+            <Text style={styles.bottomsheetTextHeadingContainerStyle}>
               Current Value :
             </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
-              ₹ {cvState.toFixed(2)}
-            </Text>
+            <Text style={styles.plValueTextStyle}>₹ {cvState.toFixed(2)}</Text>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginVertical: 12,
-            }}>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-                fontWeight: 'bold',
-              }}>
+          <View style={styles.bottomsheetTextContainerStyle}>
+            <Text style={styles.bottomsheetTextHeadingContainerStyle}>
               Total Investment :
             </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
-              ₹ {ivState.toFixed(2)}
-            </Text>
+            <Text style={styles.plValueTextStyle}>₹ {ivState.toFixed(2)}</Text>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginVertical: 10,
-            }}>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-                fontWeight: 'bold',
-              }}>
+          <View style={styles.bottomsheetTextContainerStyle}>
+            <Text style={styles.bottomsheetTextHeadingContainerStyle}>
               Today's Profit & loss :
             </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
+            <Text style={styles.plValueTextStyle}>
               ₹ {todayPlState.toFixed(2)}
             </Text>
           </View>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginVertical: 24,
-            }}>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-                fontWeight: 'bold',
-              }}>
-              P/L:
-            </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 16,
-              }}>
+          <View style={styles.plView}>
+            <Text style={styles.plTextStyle}>P/L:</Text>
+            <Text style={styles.plValueTextStyle}>
               ₹ {(cvState - ivState).toFixed(2)}
             </Text>
           </View>
@@ -152,4 +66,43 @@ const BottomContent = props => {
 
 export default BottomContent;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  pressableContainerStyle: {
+    backgroundColor: 'white',
+    minHeight: 60,
+    flexDirection: 'column',
+  },
+  mainContainerStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 24,
+    marginHorizontal: 12,
+  },
+  plTextStyle: {
+    color: 'black',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  plValueTextStyle: {
+    color: 'black',
+    fontSize: 16,
+  },
+  bottomsheetMainContainer: {
+    marginHorizontal: 12,
+  },
+  bottomsheetTextContainerStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 12,
+  },
+  bottomsheetTextHeadingContainerStyle: {
+    color: 'black',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  plView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 24,
+  },
+});

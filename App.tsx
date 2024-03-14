@@ -7,22 +7,28 @@ import ListElement from './src/components/ListElement'
 const App = () => {
 
   return (
-    <View style={{flex: 1,backgroundColor:'#c8c4cc'}}>
-      <View style={{backgroundColor:'#880484',height:50,justifyContent:'center'}}>
-        <Text style={{color: 'white',
-              fontSize: 16,
-              fontWeight:'bold',marginLeft:16
-             }}>Upstox Holding</Text>
+    <View style={styles.mainView}>
+      <View style={styles.HeadingMainView}>
+        <Text style={styles.headingText
+             }>Upstox Holding</Text>
       </View>
- 
       <ListElement/>
-
-     
-    {/*  */}
     </View>
   )
 }
 
 export default App
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  mainView:{
+    flex: 1,backgroundColor:'#c8c4cc'
+  },
+  HeadingMainView:{
+    backgroundColor:'#880484',height:50,justifyContent:'center'
+  },
+  headingText:{
+    color: 'white',
+    fontSize: 16,
+    fontWeight:'bold',marginLeft:16
+  }
+})
